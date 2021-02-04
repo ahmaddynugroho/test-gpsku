@@ -10,7 +10,7 @@
     <div>
       <p class="text-4xl mb-6 font-semibold text-gray-800">Login</p>
       <div class="relative">
-        <span class="absolute bottom-4 left-4">G</span>
+        <span class="absolute bottom-5 left-4 fas fa-user text-gray-400"></span>
         <input
           class="my-2 pl-12 pr-4 py-2 rounded-md bg-gray-100 w-full focus:outline-none focus:ring-1 focus:ring-blue-500"
           type="text"
@@ -20,16 +20,17 @@
       </div>
 
       <div class="relative">
-        <span class="absolute bottom-4 left-4">G</span>
+        <span class="absolute bottom-5 left-4 fas fa-lock text-gray-400"></span>
         <input
           class="my-2 pl-12 pr-4 py-2 rounded-md bg-gray-100 w-full focus:outline-none focus:ring-1 focus:ring-blue-500"
           type="password"
           placeholder="Password"
           id="loginPassword"
         />
-        <button class="absolute bottom-4 right-4" @click="loginPasswordReveal">
-          Open
-        </button>
+        <button
+          class="absolute bottom-4 right-4 far fa-eye text-gray-400 hover:text-gray-600"
+          @click="loginPasswordReveal"
+        ></button>
       </div>
 
       <div class="my-4 mx-2 flex items-center">
@@ -67,7 +68,7 @@
         />
       </div>
       <div class="h-16 relative">
-        <p class="text-center absolute bottom-0 w-full">
+        <p class="text-gray-500 text-sm text-center absolute bottom-0 w-full">
           All rights &amp; reserverd 2008 - 2020
         </p>
       </div>
