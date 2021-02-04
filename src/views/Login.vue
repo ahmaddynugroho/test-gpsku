@@ -28,7 +28,7 @@
           id="loginPassword"
         />
         <button
-          class="absolute bottom-4 right-4 far fa-eye text-gray-400 hover:text-gray-600"
+          class="absolute bottom-5 right-4 far fa-eye text-gray-400 hover:text-gray-600"
           @click="loginPasswordReveal"
         ></button>
       </div>
