@@ -88,5 +88,13 @@ export default {
       e.classList.toggle('bg-blue-500')
     },
   },
+  mounted() {
+    const e = document.querySelector('#title')
+    e.text += ' | LOGIN'
+  },
+  beforeUnmount() {
+    const e = document.querySelector('#title')
+    e.text = e.text.slice(0, e.text.length - 8)
+  },
 }
 </script>

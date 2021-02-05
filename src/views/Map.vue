@@ -2,7 +2,7 @@
   <div class="flex flex-col min-h-screen">
     <Navbar />
     <div class="flex flex-grow">
-      <div class="flex flex-col p-4 flex-grow-0">
+      <div class="flex flex-col p-4 flex-grow-0 w-96">
         <div class="flex-grow-0 relative">
           <span
             class="absolute bottom-5 left-4 fas fa-search text-gray-400"
@@ -340,6 +340,14 @@ export default {
     isTabDetailActive(tabName) {
       return this.tabDetailActive === tabName
     },
+  },
+  mounted() {
+    const e = document.querySelector('#title')
+    e.text += ' | MAP'
+  },
+  beforeUnmount() {
+    const e = document.querySelector('#title')
+    e.text = e.text.slice(0, e.text.length - 6)
   },
 }
 </script>
