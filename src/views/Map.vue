@@ -219,9 +219,77 @@
           </ul>
         </div>
       </div>
-      <div class="flex flex-col flex-grow">
-        <div class="flex-grow">1</div>
-        <div class="flex-grow">2</div>
+      <div class="flex flex-col w-full">
+        <div class="flex-1"></div>
+        <div
+          class="relative mx-auto flex flex-col ring-2 ring-blue-500 rounded p-4 w-72"
+        >
+          <i
+            class="fas fa-times-circle absolute right-0 mr-2 transform -translate-y-2 cursor-pointer"
+          ></i>
+          <i
+            class="fas fa-ellipsis-h absolute right-0 mr-8 transform -translate-y-2 cursor-pointer"
+          ></i>
+          <i class="text-center fas fa-motorcycle fa-4x"></i>
+          <p class="text-center font-semibold">Beat Gun</p>
+          <p class="text-center font-thin text-gray-600">27/01/2021 at 10:21</p>
+          <button class="w-full bg-blue-500 text-white rounded-full my-1 py-2">
+            <i class="fas fa-location-arrow"></i>
+            Navigate
+          </button>
+          <button
+            class="w-full bg-yellow-500 text-white rounded-full my-1 py-2"
+          >
+            <i class="fas fa-street-view"></i>
+            Streetview
+          </button>
+          <div class="my-1 relative pl-14 bg-white">
+            <i class="fas fa-barcode fa-lg absolute left-0 ml-4 mt-3"></i>
+            <p class="text-gray-600 text-xs">Imei</p>
+            <p>8912374098234712</p>
+          </div>
+          <div class="my-1 relative pl-14 bg-white">
+            <i
+              class="fas fa-map-marker-alt fa-lg absolute left-0 ml-4 mt-3"
+            ></i>
+            <p class="text-sm">Cigadung, West Java, 40123, Indoneisa</p>
+            <p class="text-gray-600 text-xs">
+              -74.19287340192387, -87.1273460234
+            </p>
+          </div>
+          <div class="flex text-gray-600">
+            <div class="my-2 flex-1">
+              <i class="ml-2 mt-1 inline fas fa-door-closed absolute"></i>
+              <p class="ml-10 mt-1 text-xs text-gray-600">Closed</p>
+            </div>
+            <div class="my-2 flex-1">
+              <i class="ml-2 mt-1 inline fas fa-video absolute"></i>
+              <p class="ml-10 mt-1 text-xs text-gray-600">Off</p>
+            </div>
+          </div>
+          <div class="flex text-gray-600">
+            <div class="my-2 flex-1">
+              <i class="ml-2 mt-3 inline fas fa-tachometer-alt absolute"></i>
+              <p class="ml-10 text-xs text-gray-600">Speed</p>
+              <p class="ml-10 text-sm text-gray-800">2 km/h</p>
+            </div>
+            <div class="my-2 flex-1">
+              <i class="ml-2 mt-3 inline fas fa-tachometer-alt absolute"></i>
+              <p class="ml-10 text-xs text-gray-600">Odometer</p>
+              <p class="ml-10 text-sm text-gray-800">821.29 km/h</p>
+            </div>
+          </div>
+          <div class="flex text-gray-600">
+            <div class="my-2 flex-1"></div>
+            <div class="my-2 flex-none">
+              <i class="ml-2 mt-3 inline fas fa-parking absolute"></i>
+              <p class="ml-10 text-xs text-gray-600">Park</p>
+              <p class="ml-10 text-sm text-gray-800">12:27:34</p>
+            </div>
+            <div class="my-2 flex-1"></div>
+          </div>
+        </div>
+        <div class="flex-1"></div>
       </div>
     </div>
   </div>
