@@ -1,62 +1,9 @@
 <template>
-  <div class="min-h-screen">
-    <div class="container mx-auto flex justify-between py-4 relative">
-      <div>
-        <ul class="font-semibold text-gray-800 text-sm">
-          <li class="inline-block mr-8 cursor-pointer">
-            Master <i class="ml-1 fas fa-chevron-down fa-xs"></i>
-          </li>
-          <li class="inline-block mr-8 cursor-pointer">
-            Report <i class="ml-1 fas fa-chevron-down fa-xs"></i>
-          </li>
-          <li class="inline-block mr-8 cursor-pointer">
-            Billing <i class="ml-1 fas fa-chevron-down fa-xs"></i>
-          </li>
-          <li class="inline-block mr-8 cursor-pointer">
-            HRD <i class="ml-1 fas fa-chevron-down fa-xs"></i>
-          </li>
-        </ul>
-      </div>
-      <div>
-        <ul class="font-semibold text-gray-800 text-sm">
-          <li class="inline-block mr-8 cursor-pointer">
-            <i class="fas fa-pencil-ruler"></i>
-            <i class="ml-1 fas fa-chevron-down fa-xs"></i>
-          </li>
-          <li class="inline-block mr-8 cursor-pointer">
-            <i class="fas fa-language fa-lg"></i>
-            <i class="ml-1 fas fa-chevron-down fa-xs"></i>
-          </li>
-          <li
-            class="relative pl-5 inline-block mr-8 cursor-pointer"
-            id="user"
-            @click="dropMenu"
-          >
-            <div
-              class="absolute h-6 w-6 rounded-full bg-gray-500 inline-block transform -translate-x-8"
-            ></div>
-            Administrator <i class="ml-1 fas fa-chevron-down fa-xs"></i>
-            <ul
-              class="hidden absolute rounded min-w-full right-0 transform translate-y-2"
-            >
-              <li class="px-4 py-2 text-gray-800 rounded hover:bg-gray-200">
-                Menu numb 1
-              </li>
-              <li class="px-4 py-2 text-gray-800 rounded hover:bg-gray-200">
-                Menu numb 2
-              </li>
-              <li class="px-4 py-2 text-gray-800 rounded hover:bg-gray-200">
-                Menu numb 3
-              </li>
-            </ul>
-          </li>
-        </ul>
-      </div>
-      <div class="absolute min-w-full text-center" id="logo">GSPKU</div>
-    </div>
-    <div class="flex">
-      <div class="p-4 flex-grow-0">
-        <div class="relative">
+  <div class="flex flex-col min-h-screen">
+    <Navbar />
+    <div class="flex flex-grow">
+      <div class="flex flex-col p-4 flex-grow-0">
+        <div class="flex-grow-0 relative">
           <span
             class="absolute bottom-5 left-4 fas fa-search text-gray-400"
           ></span>
@@ -73,7 +20,7 @@
             @click="searchStringClear"
           ></button>
         </div>
-        <ul class="grid grid-cols-3 text-gray-400">
+        <ul class="flex-grow-0 grid grid-cols-3 text-gray-400">
           <li
             class="py-2 text-center border-b-4 border-gray-300 cursor-pointer"
             :class="{ active: isTabActive('all') }"
@@ -96,8 +43,8 @@
             Offline
           </li>
         </ul>
-        <div class="flex flex-col">
-          <ul class="flex-grow">
+        <div class="flex flex-col flex-grow">
+          <ul class="flex-grow-0 h-44 overflow-auto">
             <li :class="{ hidden: !isTabActive('all') }">
               <ul>
                 <li
@@ -192,32 +139,109 @@
             </li>
           </ul>
           <ul class="flex-grow">
-            <li>content</li>
+            <div class="flex flex-col">
+              <ul class="flex-grow-0 grid grid-cols-2 text-gray-400">
+                <li
+                  class="py-2 text-center border-b-4 border-gray-300 cursor-pointer"
+                  :class="{ active: isTabDetailActive('info-device') }"
+                  @click="setTabDetail('info-device')"
+                >
+                  Info Device
+                </li>
+                <li
+                  class="py-2 text-center border-b-4 border-gray-300 cursor-pointer"
+                  :class="{ active: isTabDetailActive('kontrol') }"
+                  @click="setTabDetail('kontrol')"
+                >
+                  Kontrol
+                </li>
+              </ul>
+              <ul class="">
+                <li :class="{ hidden: !isTabDetailActive('kontrol') }">
+                  <button
+                    class="bg-blue-500 rounded text-white my-2 py-2 w-full block"
+                  >
+                    Engine On
+                  </button>
+                </li>
+              </ul>
+              <div class="flex flex-col text-gray-700 text-xs">
+                <div class="flex">
+                  <div
+                    class="text-center flex-1 h-14 rounded bg-gray-100 m-1 p-2 cursor-pointer hover:bg-gray-300"
+                  >
+                    <i class="far fa-image fa-lg mt-2 mb-1"></i>
+                    <p class="">Req Photo</p>
+                  </div>
+                  <div
+                    class="text-center flex-1 h-14 rounded bg-gray-100 m-1 p-2 cursor-pointer hover:bg-gray-300"
+                  >
+                    <i class="fas fa-tachometer-alt fa-lg mt-2 mb-1"></i>
+                    <p class="">Over Speed</p>
+                  </div>
+                  <div
+                    class="text-center flex-1 h-14 rounded bg-gray-100 m-1 p-2 cursor-pointer hover:bg-gray-300"
+                  >
+                    <i class="fas fa-upload fa-lg mt-2 mb-1"></i>
+                    <p class="">Upload</p>
+                  </div>
+                </div>
+                <div class="flex">
+                  <div
+                    class="text-center flex-1 h-14 rounded bg-gray-100 m-1 py-2 cursor-pointer hover:bg-gray-300"
+                  >
+                    <i class="fas fa-chart-area fa-lg mt-2 mb-1"></i>
+                    <p class="">Set Geofence</p>
+                  </div>
+                  <div
+                    class="text-center flex-1 h-14 rounded bg-gray-100 m-1 py-2 cursor-pointer hover:bg-gray-300"
+                  >
+                    <i class="fas fa-crosshairs fa-lg mt-2 mb-1"></i>
+                    <p class="">Center</p>
+                  </div>
+                  <div
+                    class="text-center flex-1 h-14 rounded bg-gray-100 m-1 py-2 cursor-pointer hover:bg-gray-300"
+                  >
+                    <i class="fas fa-hand-point-up fa-lg mt-2 mb-1"></i>
+                    <p class="">POI</p>
+                  </div>
+                </div>
+                <div class="flex">
+                  <div
+                    class="text-center flex-1 h-14 rounded bg-gray-100 m-1 p-2 cursor-pointer hover:bg-gray-300"
+                  >
+                    <i class="far fa-play-circle fa-lg mt-2 mb-1"></i>
+                    <p class="">Playback Speed</p>
+                  </div>
+                </div>
+              </div>
+            </div>
           </ul>
         </div>
       </div>
-      <div class="flex-grow">map</div>
+      <div class="flex flex-col flex-grow">
+        <div class="flex-grow">1</div>
+        <div class="flex-grow">2</div>
+      </div>
     </div>
   </div>
 </template>
 
 <script>
+import Navbar from '@/components/Navbar'
+
 export default {
+  components: {
+    Navbar,
+  },
   data() {
     return {
       searchString: '',
       tabActive: 'all',
+      tabDetailActive: 'kontrol',
     }
   },
   methods: {
-    dropMenu() {
-      const e = document.querySelector('li#user i')
-      e.classList.toggle('transform')
-      e.classList.toggle('rotate-180')
-
-      const f = document.querySelector('li#user ul')
-      f.classList.toggle('hidden')
-    },
     dropMenu2() {
       const e = document.querySelector('li#user-1 ul')
       const f = document.querySelector('li#user-1 i')
@@ -226,7 +250,9 @@ export default {
     },
     dropMenu3() {
       const g = document.querySelector('li#user-2 ul')
+      const h = document.querySelector('li#user-2 i')
       g.classList.toggle('hidden')
+      h.classList.toggle('rotate-90')
     },
     searchStringClear() {
       this.searchString = ''
@@ -239,6 +265,12 @@ export default {
     },
     isTabActive(tabName) {
       return this.tabActive === tabName
+    },
+    setTabDetail(tabName) {
+      this.tabDetailActive = tabName
+    },
+    isTabDetailActive(tabName) {
+      return this.tabDetailActive === tabName
     },
   },
 }
