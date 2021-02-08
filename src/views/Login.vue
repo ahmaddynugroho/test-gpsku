@@ -9,15 +9,22 @@
     </div>
     <div>
       <p class="text-4xl mb-6 font-semibold text-gray-800">Login</p>
-      <div class="relative">
-        <span class="absolute bottom-5 left-4 fas fa-user text-gray-400"></span>
-        <input
-          class="my-2 pl-12 pr-4 py-2 rounded-md bg-gray-100 w-full focus:outline-none focus:ring-1 focus:ring-blue-500"
-          type="text"
-          placeholder="Email"
-          id="loginEmail"
-        />
-      </div>
+      <Input
+        faIcon="fas fa-user text-gray-400"
+        faIconOnFocus="text-gray-600"
+        placeholder="Email"
+        focus="outline-none ring-1 ring-blue-500"
+      />
+
+      <Input
+        type="password"
+        placeholder="Password"
+        faIcon="fas fa-lock text-gray-400"
+        faIconOnFocus="text-gray-600"
+        focus="outline-none ring-1 ring-blue-500"
+        faIconButton="far fa-eye text-gray-400"
+        faIconButtonHover="text-gray-600"
+      />
 
       <div class="relative">
         <span class="absolute bottom-5 left-4 fas fa-lock text-gray-400"></span>
@@ -77,7 +84,12 @@
 </template>
 
 <script>
+import Input from '../components/buttons/Input'
+
 export default {
+  components: {
+    Input,
+  },
   methods: {
     loginPasswordReveal() {
       let e = document.querySelector('#loginPassword')
