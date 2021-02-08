@@ -1,44 +1,22 @@
 <template>
   <div class="container mx-auto p-4 grid grid-cols-3 gap-8">
+    <!-- HEADER -->
     <div class="col-span-2"></div>
     <div class="text-xl text-gray-800 tracking-wide">GPSKU</div>
+
+    <!-- CAROUSEL/LEFT PART -->
     <div
       class="col-span-2 ml-0 m-8 p-4 rounded-3xl bg-gray-100 text-gray-400 tracking-wide"
     >
       Carousel
     </div>
+
+    <!-- LOGIN/RIGHT PART -->
     <div>
       <p class="text-4xl mb-6 font-semibold text-gray-800">Login</p>
-      <Input
-        faIcon="fas fa-user text-gray-400"
-        faIconOnFocus="text-gray-600"
-        placeholder="Email"
-        focus="outline-none ring-1 ring-blue-500"
-      />
+      <Input v-bind="inputEmail" />
 
-      <Input
-        type="password"
-        placeholder="Password"
-        faIcon="fas fa-lock text-gray-400"
-        faIconOnFocus="text-gray-600"
-        focus="outline-none ring-1 ring-blue-500"
-        faIconButton="far fa-eye text-gray-400"
-        faIconButtonHover="text-gray-600"
-      />
-
-      <div class="relative">
-        <span class="absolute bottom-5 left-4 fas fa-lock text-gray-400"></span>
-        <input
-          class="my-2 pl-12 pr-4 py-2 rounded-md bg-gray-100 w-full focus:outline-none focus:ring-1 focus:ring-blue-500"
-          type="password"
-          placeholder="Password"
-          id="loginPassword"
-        />
-        <button
-          class="absolute bottom-5 right-4 far fa-eye text-gray-400 hover:text-gray-600"
-          @click="loginPasswordReveal"
-        ></button>
-      </div>
+      <Input v-bind="inputPassword" @faIconButtonClick="loginPasswordReveal" />
 
       <div class="my-4 mx-2 flex items-center">
         <div
@@ -61,6 +39,8 @@
         Ingin mencoba? masuk
         <a href="#" class="text-blue-500">akun demo dulu</a>
       </p>
+
+      <!-- DOWNLOAD FROM APP/PLAY STORE -->
       <hr class="my-4" />
       <div class="flex justify-center">
         <img
@@ -74,6 +54,8 @@
           alt="Dowload on play store"
         />
       </div>
+
+      <!-- CREDIT -->
       <div class="h-16 relative">
         <p class="text-gray-500 text-sm text-center absolute bottom-0 w-full">
           All rights &amp; reserverd 2008 - 2020
@@ -90,9 +72,27 @@ export default {
   components: {
     Input,
   },
+  data() {
+    return {
+      inputEmail: {
+        faIcon: 'fas fa-user text-gray-400',
+        faIconOnFocus: 'text-blue-500',
+        placeholder: 'Email',
+        focus: 'outline-none ring-1 ring-blue-500',
+      },
+      inputPassword: {
+        type: 'password',
+        placeholder: 'Password',
+        faIcon: 'fas fa-lock text-gray-400',
+        faIconOnFocus: 'text-blue-500',
+        focus: 'outline-none ring-1 ring-blue-500',
+        faIconButton: 'far fa-eye text-gray-400',
+        faIconButtonHover: 'text-blue-500',
+      },
+    }
+  },
   methods: {
-    loginPasswordReveal() {
-      let e = document.querySelector('#loginPassword')
+    loginPasswordReveal(e) {
       e.type = e.type === 'password' ? 'text' : 'password'
     },
     loginRememberToggle() {
