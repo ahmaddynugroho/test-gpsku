@@ -66,7 +66,7 @@
 </template>
 
 <script>
-import Input from '../components/buttons/Input'
+import Input from '../components/UI/Input'
 
 export default {
   components: {
