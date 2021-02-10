@@ -11,6 +11,8 @@
       }"
       :type="type"
       :placeholder="placeholder"
+      :value="modelValue"
+      @input="$emit('update:modelValue', $event.target.value)"
       @focus="handleFocus($event.target)"
       @blur="handleFocus($event.target)"
     />
@@ -18,8 +20,6 @@
       v-if="faIconButton"
       class="absolute bottom-5 right-4"
       :class="faIconButton"
-      @mouseenter="handleHover($event.target)"
-      @mouseleave="handleHover($event.target)"
       @click="$emit('faIconButtonClick', $event.target.previousElementSibling)"
     ></button>
   </div>
@@ -28,10 +28,10 @@
 <script>
 export default {
   props: {
+    modelValue: String,
     faIcon: String,
     faIconOnFocus: String,
     faIconButton: String,
-    faIconButtonHover: String,
     placeholder: String,
     focus: {
       type: String,
@@ -42,7 +42,7 @@ export default {
       default: 'text',
     },
   },
-  emits: ['faIconButtonClick'],
+  emits: ['faIconButtonClick', 'update:modelValue'],
   methods: {
     handleFocus(e) {
       const leftIcon = e.previousElementSibling
@@ -52,10 +52,6 @@ export default {
 
       classesFocus.forEach((c) => e.classList.toggle(c))
       classesFaIcon.forEach((c) => leftIcon.classList.toggle(c))
-    },
-    handleHover(e) {
-      const classes = this.faIconButtonHover.split(' ')
-      classes.forEach((c) => e.classList.toggle(c))
     },
   },
 }
