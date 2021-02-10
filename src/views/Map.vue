@@ -3,23 +3,21 @@
     <Navbar />
     <div class="flex flex-grow">
       <div class="flex flex-col p-4 flex-grow-0 w-96">
-        <div class="flex-grow-0 relative">
-          <span
-            class="absolute bottom-5 left-4 fas fa-search text-gray-400"
-          ></span>
-          <input
-            class="my-2 pl-12 pr-4 py-2 rounded-md bg-gray-100 w-full focus:outline-none focus:ring-1 focus:ring-blue-500"
-            type="text"
-            placeholder="Search"
-            id="search"
-            v-model="searchString"
-          />
-          <button
-            class="absolute bottom-5 right-4 fas fa-times text-gray-400 hover:text-gray-600"
-            :class="{ hidden: isSearchStringEmpty() }"
-            @click="searchStringClear"
-          ></button>
-        </div>
+        <!-- SEARCH -->
+        <Input
+          v-model="searchString"
+          placeholder="Search"
+          faIcon="fas fa-search text-gray-400"
+          faIconOnFocus="text-blue-500"
+          :faIconButton="
+            isSearchStringEmpty()
+              ? ''
+              : 'fas fa-times text-gray-400 hover:text-blue-500'
+          "
+          @faIconButtonClick="searchStringClear"
+        />
+
+        <!-- TABS -->
         <ul class="flex-grow-0 grid grid-cols-3 text-gray-400">
           <li
             class="py-2 text-center border-b-4 border-gray-300 cursor-pointer"
@@ -44,6 +42,7 @@
           </li>
         </ul>
         <div class="flex flex-col flex-grow">
+          <!-- TAB CONTENT -->
           <ul class="flex-grow-0 h-44 overflow-auto">
             <li :class="{ hidden: !isTabActive('all') }">
               <ul>
@@ -138,8 +137,11 @@
               </ul>
             </li>
           </ul>
+
+          <!-- LEFT LOWER MENU -->
           <ul class="flex-grow">
             <div class="flex flex-col">
+              <!-- TABS -->
               <ul class="flex-grow-0 grid grid-cols-2 text-gray-400">
                 <li
                   class="py-2 text-center border-b-4 border-gray-300 cursor-pointer"
@@ -156,63 +158,56 @@
                   Kontrol
                 </li>
               </ul>
+
+              <!-- TAB CONTENTS -->
               <ul class="">
                 <li :class="{ hidden: !isTabDetailActive('kontrol') }">
-                  <button
-                    class="bg-blue-500 rounded text-white my-2 py-2 w-full block"
-                  >
-                    Engine On
-                  </button>
+                  <Button v-bind="buttonEngine" />
                 </li>
               </ul>
+
+              <!-- MENU BUTTONS -->
               <div class="flex flex-col text-gray-700 text-xs">
                 <div class="flex">
-                  <div
-                    class="text-center flex-1 h-14 rounded bg-gray-100 m-1 p-2 cursor-pointer hover:bg-gray-300"
-                  >
-                    <i class="far fa-image fa-lg mt-2 mb-1"></i>
-                    <p class="">Req Photo</p>
-                  </div>
-                  <div
-                    class="text-center flex-1 h-14 rounded bg-gray-100 m-1 p-2 cursor-pointer hover:bg-gray-300"
-                  >
-                    <i class="fas fa-tachometer-alt fa-lg mt-2 mb-1"></i>
-                    <p class="">Over Speed</p>
-                  </div>
-                  <div
-                    class="text-center flex-1 h-14 rounded bg-gray-100 m-1 p-2 cursor-pointer hover:bg-gray-300"
-                  >
-                    <i class="fas fa-upload fa-lg mt-2 mb-1"></i>
-                    <p class="">Upload</p>
-                  </div>
+                  <Button
+                    title="Req Photo"
+                    faIconTop="far fa-image fa-lg mt-2 mb-1"
+                    classes="text-center flex-1 h-14 rounded bg-gray-100 m-1 py-2 cursor-pointer hover:bg-gray-300"
+                  />
+                  <Button
+                    title="Over Speed"
+                    faIconTop="fas fa-tachometer-alt fa-lg mt-2 mb-1"
+                    classes="text-center flex-1 h-14 rounded bg-gray-100 m-1 py-2 cursor-pointer hover:bg-gray-300"
+                  />
+                  <Button
+                    title="Upload"
+                    faIconTop="fas fa-upload fa-lg mt-2 mb-1"
+                    classes="text-center flex-1 h-14 rounded bg-gray-100 m-1 py-2 cursor-pointer hover:bg-gray-300"
+                  />
                 </div>
                 <div class="flex">
-                  <div
-                    class="text-center flex-1 h-14 rounded bg-gray-100 m-1 py-2 cursor-pointer hover:bg-gray-300"
-                  >
-                    <i class="fas fa-chart-area fa-lg mt-2 mb-1"></i>
-                    <p class="">Set Geofence</p>
-                  </div>
-                  <div
-                    class="text-center flex-1 h-14 rounded bg-gray-100 m-1 py-2 cursor-pointer hover:bg-gray-300"
-                  >
-                    <i class="fas fa-crosshairs fa-lg mt-2 mb-1"></i>
-                    <p class="">Center</p>
-                  </div>
-                  <div
-                    class="text-center flex-1 h-14 rounded bg-gray-100 m-1 py-2 cursor-pointer hover:bg-gray-300"
-                  >
-                    <i class="fas fa-hand-point-up fa-lg mt-2 mb-1"></i>
-                    <p class="">POI</p>
-                  </div>
+                  <Button
+                    title="Set Geofence"
+                    faIconTop="fas fa-chart-area fa-lg mt-2 mb-1"
+                    classes="text-center flex-1 h-14 rounded bg-gray-100 m-1 py-2 cursor-pointer hover:bg-gray-300"
+                  />
+                  <Button
+                    title="Center"
+                    faIconTop="fas fa-crosshairs fa-lg mt-2 mb-1"
+                    classes="text-center flex-1 h-14 rounded bg-gray-100 m-1 py-2 cursor-pointer hover:bg-gray-300"
+                  />
+                  <Button
+                    title="POI"
+                    faIconTop="fas fa-hand-point-up fa-lg mt-2 mb-1"
+                    classes="text-center flex-1 h-14 rounded bg-gray-100 m-1 py-2 cursor-pointer hover:bg-gray-300"
+                  />
                 </div>
                 <div class="flex">
-                  <div
-                    class="text-center flex-1 h-14 rounded bg-gray-100 m-1 p-2 cursor-pointer hover:bg-gray-300"
-                  >
-                    <i class="far fa-play-circle fa-lg mt-2 mb-1"></i>
-                    <p class="">Playback Speed</p>
-                  </div>
+                  <Button
+                    title="Playback Speed"
+                    faIconTop="far fa-play-circle fa-lg mt-2 mb-1"
+                    classes="text-center flex-1 h-14 rounded bg-gray-100 m-1 py-2 cursor-pointer hover:bg-gray-300"
+                  />
                 </div>
               </div>
             </div>
@@ -297,16 +292,24 @@
 
 <script>
 import Navbar from '@/components/Navbar'
+import Button from '../components/UI/Button'
+import Input from '../components/UI/Input'
 
 export default {
   components: {
     Navbar,
+    Button,
+    Input,
   },
   data() {
     return {
       searchString: '',
       tabActive: 'all',
       tabDetailActive: 'kontrol',
+      buttonEngine: {
+        classes: 'bg-blue-500 rounded text-white my-2 py-2 w-full block',
+        title: 'Engine On',
+      },
     }
   },
   methods: {

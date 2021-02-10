@@ -15,23 +15,21 @@
     <div>
       <p class="text-4xl mb-6 font-semibold text-gray-800">Login</p>
       <Input v-bind="inputEmail" />
-
       <Input v-bind="inputPassword" @faIconButtonClick="loginPasswordReveal" />
-
-      <div class="my-4 mx-2 flex items-center">
-        <div
-          class="ring-2 ring-blue-500 border-2 border-white h-4 w-4 rounded-full bg-blue-500 cursor-pointer"
-          id="loginRemember"
-          @click="loginRememberToggle"
-        ></div>
-        <span class="ml-2">Ingat saya</span>
-      </div>
-
-      <button
-        class="w-full p-2 border border-blue-500 rounded-md text-blue-500 hover:bg-gray-100"
+      <input
+        class="hidden"
+        type="checkbox"
+        name="loginRemember"
+        id="loginRemember"
+      />
+      <label
+        class="my-2 cursor-pointer block"
+        for="loginRemember"
+        @click="loginRememberToggle"
+        ><i id="loginRememberIcon" class="mr-1 far fa-square text-gray-400"></i
+        >Ingat saya</label
       >
-        Login
-      </button>
+      <Button v-bind="buttonLogin" />
       <p class="text-sm text-blue-400 hover:text-blue-500 mt-2 mb-4">
         <a href="#">Lupa password?</a>
       </p>
@@ -67,10 +65,12 @@
 
 <script>
 import Input from '../components/UI/Input'
+import Button from '../components/UI/Button'
 
 export default {
   components: {
     Input,
+    Button,
   },
   data() {
     return {
@@ -86,8 +86,12 @@ export default {
         faIcon: 'fas fa-lock text-gray-400',
         faIconOnFocus: 'text-blue-500',
         focus: 'outline-none ring-1 ring-blue-500',
-        faIconButton: 'far fa-eye text-gray-400',
-        faIconButtonHover: 'text-blue-500',
+        faIconButton: 'far fa-eye text-gray-400 hover:text-blue-500',
+      },
+      buttonLogin: {
+        title: 'Login',
+        classes:
+          'w-full p-2 border border-blue-500 rounded-md text-blue-500 hover:text-white hover:bg-blue-500 focus:bg-blue-700',
       },
     }
   },
@@ -96,8 +100,10 @@ export default {
       e.type = e.type === 'password' ? 'text' : 'password'
     },
     loginRememberToggle() {
-      let e = document.querySelector('#loginRemember')
-      e.classList.toggle('bg-blue-500')
+      let e = document.querySelector('#loginRememberIcon')
+      ;['fa-square', 'fa-check-square', 'text-blue-500'].forEach((c) =>
+        e.classList.toggle(c),
+      )
     },
   },
   mounted() {
