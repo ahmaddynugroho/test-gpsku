@@ -172,41 +172,41 @@
                   <Button
                     title="Req Photo"
                     faIconTop="far fa-image fa-lg mt-2 mb-1"
-                    classes="text-center flex-1 h-14 rounded bg-gray-100 m-1 py-2 cursor-pointer hover:bg-gray-300"
+                    class="text-center flex-1 h-14 rounded bg-gray-100 m-1 py-2 cursor-pointer hover:bg-gray-300"
                   />
                   <Button
                     title="Over Speed"
                     faIconTop="fas fa-tachometer-alt fa-lg mt-2 mb-1"
-                    classes="text-center flex-1 h-14 rounded bg-gray-100 m-1 py-2 cursor-pointer hover:bg-gray-300"
+                    class="text-center flex-1 h-14 rounded bg-gray-100 m-1 py-2 cursor-pointer hover:bg-gray-300"
                   />
                   <Button
                     title="Upload"
                     faIconTop="fas fa-upload fa-lg mt-2 mb-1"
-                    classes="text-center flex-1 h-14 rounded bg-gray-100 m-1 py-2 cursor-pointer hover:bg-gray-300"
+                    class="text-center flex-1 h-14 rounded bg-gray-100 m-1 py-2 cursor-pointer hover:bg-gray-300"
                   />
                 </div>
                 <div class="flex">
                   <Button
                     title="Set Geofence"
                     faIconTop="fas fa-chart-area fa-lg mt-2 mb-1"
-                    classes="text-center flex-1 h-14 rounded bg-gray-100 m-1 py-2 cursor-pointer hover:bg-gray-300"
+                    class="text-center flex-1 h-14 rounded bg-gray-100 m-1 py-2 cursor-pointer hover:bg-gray-300"
                   />
                   <Button
                     title="Center"
                     faIconTop="fas fa-crosshairs fa-lg mt-2 mb-1"
-                    classes="text-center flex-1 h-14 rounded bg-gray-100 m-1 py-2 cursor-pointer hover:bg-gray-300"
+                    class="text-center flex-1 h-14 rounded bg-gray-100 m-1 py-2 cursor-pointer hover:bg-gray-300"
                   />
                   <Button
                     title="POI"
                     faIconTop="fas fa-hand-point-up fa-lg mt-2 mb-1"
-                    classes="text-center flex-1 h-14 rounded bg-gray-100 m-1 py-2 cursor-pointer hover:bg-gray-300"
+                    class="text-center flex-1 h-14 rounded bg-gray-100 m-1 py-2 cursor-pointer hover:bg-gray-300"
                   />
                 </div>
                 <div class="flex">
                   <Button
                     title="Playback Speed"
                     faIconTop="far fa-play-circle fa-lg mt-2 mb-1"
-                    classes="text-center flex-1 h-14 rounded bg-gray-100 m-1 py-2 cursor-pointer hover:bg-gray-300"
+                    class="text-center flex-1 h-14 rounded bg-gray-100 m-1 py-2 cursor-pointer hover:bg-gray-300"
                   />
                 </div>
               </div>
@@ -307,7 +307,7 @@ export default {
       tabActive: 'all',
       tabDetailActive: 'kontrol',
       buttonEngine: {
-        classes: 'bg-blue-500 rounded text-white my-2 py-2 w-full block',
+        class: 'bg-blue-500 rounded text-white my-2 py-2 w-full block',
         title: 'Engine On',
       },
     }

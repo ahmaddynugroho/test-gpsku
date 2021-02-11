@@ -90,7 +90,7 @@ export default {
       },
       buttonLogin: {
         title: 'Login',
-        classes:
+        class:
           'w-full p-2 border border-blue-500 rounded-md text-blue-500 hover:text-white hover:bg-blue-500 focus:bg-blue-700',
       },
     }
